@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_store_weekly_sales
+    description: Department sales aggregated to store-week grain for safe comparison with store features.
+    columns:
+      - name: store_id
+        tests: [not_null]
+      - name: week_date
+        tests: [not_null]
+
+  - name: int_calendar_dates
+    description: Distinct source dates and their holiday status.
+    columns:
+      - name: week_date
+        tests: [not_null, unique]
+      - name: is_holiday
+        tests: [not_null]
