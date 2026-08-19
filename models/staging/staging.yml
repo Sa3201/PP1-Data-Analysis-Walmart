@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_walmart_stores
+    description: Cleaned store master data at one row per store.
+    columns:
+      - name: store_id
+        tests: [not_null, unique]
+      - name: store_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C']
+      - name: store_size
+        tests: [not_null]
+
+  - name: stg_walmart_department_sales
+    description: Weekly sales at the store, department, and week grain.
+    columns:
+      - name: department_sales_key
+        tests: [not_null, unique]
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_walmart_stores')
+                field: store_id
+      - name: dept_id
+        tests: [not_null]
+      - name: week_date
+        tests: [not_null]
+      - name: weekly_sales
+        tests: [not_null]
+      - name: is_holiday
+        tests: [not_null]
+
+  - name: stg_walmart_features
+    description: Store-level economic and operational features at one row per store and week.
+    columns:
+      - name: store_week_key
+        tests: [not_null, unique]
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_walmart_stores')
+                field: store_id
+      - name: week_date
+        tests: [not_null]
+      - name: is_holiday
+        tests: [not_null]
+
