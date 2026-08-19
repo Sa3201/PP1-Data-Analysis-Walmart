@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: walmart_raw
+    database: PP1_WMRT
+    schema: RAW
+    description: Raw Walmart CSV data loaded from the S3 external stage.
+    tables:
+      - name: walmart_stores_raw
+        identifier: WALMART_STORES_RAW
+        columns:
+          - name: STORE_ID
+            tests: [not_null]
+          - name: STORE_TYPE
+            tests: [not_null]
+          - name: STORE_SIZE
+            tests: [not_null]
+
+      - name: walmart_department_raw
+        identifier: WALMART_DEPARTMENT_RAW
+        columns:
+          - name: STORE_ID
+            tests: [not_null]
+          - name: DEPT_ID
+            tests: [not_null]
+          - name: DATE
+            tests: [not_null]
+          - name: WEEKLY_SALES
+            tests: [not_null]
+
+      - name: walmart_fact_raw
+        identifier: WALMART_FACT_RAW
+        columns:
+          - name: STORE_ID
+            tests: [not_null]
+          - name: DATE
+            tests: [not_null]
+
