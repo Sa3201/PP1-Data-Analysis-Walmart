@@ -88,12 +88,13 @@ def load_dashboard_data() -> tuple[pd.DataFrame, pd.DataFrame]:
             dd.month_name,
             dd.quarter_number,
             dd.year_number as year,
-            dd.is_holiday
+            ff.is_holiday
         from {namespace}.fct_store_weekly_features ff
         join {namespace}.dim_store ds
           on ff.store_id = ds.store_id
         join {namespace}.dim_date dd
           on ff.date_id = dd.date_id
+        where ff.is_current = true
     """
 
     sales = _query(sales_sql)

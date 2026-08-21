@@ -23,14 +23,14 @@ Professional Streamlit dashboard built from the five Snowflake/dbt gold tables.
 - `PP1_WMRT.MARTS.FCT_DEPARTMENT_WEEKLY_SALES`
 - `PP1_WMRT.MARTS.FCT_STORE_WEEKLY_FEATURES`
 
-The dashboard filters `FCT_DEPARTMENT_WEEKLY_SALES` to `IS_CURRENT = TRUE`.
+The dashboard filters both fact tables to `IS_CURRENT = TRUE`.
 For CPI and temperature analysis, department sales are aggregated to store-week
 grain before joining to the store-week feature fact.
 
 ## Local setup
 
 ```bash
-cd walmart_streamlit
+cd streamlit
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -45,4 +45,3 @@ streamlit run app.py
 
 Use a dedicated least-privilege Snowflake role in production. It only needs
 warehouse usage and `SELECT` access to the five MARTS tables.
-
