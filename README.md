@@ -2,6 +2,8 @@
 
 An end-to-end retail analytics pipeline that loads Walmart store data from AWS S3 into Snowflake, transforms it with dbt, and serves the resulting data marts through a Streamlit dashboard. The project covers weekly sales performance by store, department, time period, holiday status, and economic conditions.
 
+**Live dashboard:** [Explore Walmart Retail Analytics](https://walmart-data-analytics.streamlit.app)
+
 ## Architecture
 
 ![Walmart Retail Analytics Pipeline](docs/Walmart_Retail_Analytics_Pipeline.png)
