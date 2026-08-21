@@ -128,18 +128,19 @@ dbt docs serve
 
 ### 3. Run the dashboard
 
+From the repository root:
+
 ```bash
-cd streamlit
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r streamlit/requirements.txt
 cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ```
 
 Add the Snowflake connection details to `.streamlit/secrets.toml`, then run:
 
 ```bash
-streamlit run app.py
+streamlit run streamlit/app.py
 ```
 
 The secrets file is excluded from Git. The dashboard role requires warehouse usage and `SELECT` access to the five tables in `PP1_WMRT.MARTS`.

@@ -29,18 +29,19 @@ grain before joining to the store-week feature fact.
 
 ## Local setup
 
+Run these commands from the repository root:
+
 ```bash
-cd streamlit
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r streamlit/requirements.txt
 cp .streamlit/secrets.toml.example .streamlit/secrets.toml
 ```
 
 Enter the Snowflake credentials in `.streamlit/secrets.toml`, then run:
 
 ```bash
-streamlit run app.py
+streamlit run streamlit/app.py
 ```
 
 Use a dedicated least-privilege Snowflake role in production. It only needs
