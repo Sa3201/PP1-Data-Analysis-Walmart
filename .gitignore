@@ -1,4 +1,28 @@
-# you shouldn't commit these into source control
+# dbt generated files
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+.user.yml
+
+# Python environments and cache
+**/.venv/
+**/__pycache__/
+*.py[cod]
+
+# Credentials and local configuration
+**/.streamlit/secrets.toml
+**/profiles.yml
+.env
+.env.*
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Temporary files and raw datasets
+tmp/
+data/raw/# you shouldn't commit these into source control
 # these are the default directory names, adjust/add to fit your needs
 target/
 dbt_packages/
