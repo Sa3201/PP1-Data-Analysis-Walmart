@@ -18,7 +18,10 @@ MONTH_ORDER = [
 
 def _plot(fig, *, height=430, legend=True):
     with st.container(border=True):
-        st.plotly_chart(polish(fig, height=height, legend=legend), width="stretch")
+        st.plotly_chart(
+            polish(fig, height=height, legend=legend),
+            use_container_width=True,
+        )
 
 
 def _currency_axis(fig, values, *, axis="y"):
